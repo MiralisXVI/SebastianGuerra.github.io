@@ -1,0 +1,58 @@
+:root {
+    --primary: #00ffff; /* cyan */
+    --accent: #ff00ff; /* magenta */
+    --bg: #001100; /* dark greenish */
+    --text: #00ff00; /* bright green */
+    --card-bg: #003300; /* deep green */
+    --card-border: #00ff00; /* bright green border */
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    background: #2f2f2f; /* gris oscuro sólido */
+    color: var(--text);
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.portfolio-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    transition: transform 0.1s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+}
+
+.tech-tag {
+    background: #e0e0e0;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+}
