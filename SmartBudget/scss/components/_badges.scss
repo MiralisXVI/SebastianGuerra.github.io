@@ -1,0 +1,101 @@
+// ============================================================================
+// BADGES Y ETIQUETAS - Componentes BEM
+// ============================================================================
+
+// BADGES
+.badge {
+  display: inline-block;
+  padding: $spacing-4 $spacing-10;
+  border-radius: $border-radius-full;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  white-space: nowrap;
+
+  &--primary {
+    background-color: rgba($color-primary, 0.2);
+    color: $color-primary;
+  }
+
+  &--secondary {
+    background-color: rgba($color-secondary, 0.2);
+    color: $color-secondary;
+  }
+
+  &--success {
+    background-color: rgba($color-success, 0.2);
+    color: $color-success;
+  }
+
+  &--danger {
+    background-color: rgba($color-danger, 0.2);
+    color: $color-danger;
+  }
+
+  &--warning {
+    background-color: rgba($color-warning, 0.2);
+    color: $color-warning;
+  }
+
+  &--info {
+    background-color: rgba($color-info, 0.2);
+    color: $color-info;
+  }
+}
+
+// ALERTAS
+.alert {
+  padding: $spacing-12 $spacing-16;
+  border-radius: $border-radius-lg;
+  border-left: 4px solid;
+  margin-bottom: $spacing-16;
+
+  &__title {
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-4;
+  }
+
+  &__content {
+    font-size: $font-size-sm;
+    margin: 0;
+  }
+
+  &--success {
+    background-color: rgba($color-success, 0.1);
+    border-color: $color-success;
+    color: darken($color-success, 20%);
+
+    .alert__title {
+      color: darken($color-success, 20%);
+    }
+  }
+
+  &--danger {
+    background-color: rgba($color-danger, 0.1);
+    border-color: $color-danger;
+    color: darken($color-danger, 20%);
+
+    .alert__title {
+      color: darken($color-danger, 20%);
+    }
+  }
+
+  &--warning {
+    background-color: rgba($color-warning, 0.1);
+    border-color: $color-warning;
+    color: darken($color-warning, 20%);
+
+    .alert__title {
+      color: darken($color-warning, 20%);
+    }
+  }
+
+  &--info {
+    background-color: rgba($color-info, 0.1);
+    border-color: $color-info;
+    color: darken($color-info, 20%);
+
+    .alert__title {
+      color: darken($color-info, 20%);
+    }
+  }
+}

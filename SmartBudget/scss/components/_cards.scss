@@ -1,0 +1,80 @@
+// ============================================================================
+// CARDS - Componente BEM
+// ============================================================================
+// Contenedor versátil para presentar contenido agrupado
+
+.card {
+  background-color: $bg-color;
+  border: $border-width-thin solid $color-gray-200;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  @include shadow(base);
+  @include transition(all);
+
+  &:hover {
+    @include shadow(md);
+    transform: translateY(-4px);
+  }
+
+  // ---- ELEMENTOS ----
+  &__header {
+    padding: $spacing-16;
+    border-bottom: $border-width-thin solid $color-gray-200;
+    background-color: $bg-color-light;
+  }
+
+  &__body {
+    padding: $spacing-16;
+  }
+
+  &__footer {
+    padding: $spacing-16;
+    border-top: $border-width-thin solid $color-gray-200;
+    background-color: $bg-color-light;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    margin: 0;
+    color: $text-color;
+  }
+
+  &__text {
+    margin: 0;
+    color: $text-color-light;
+    font-size: $font-size-sm;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  // ---- VARIANTES ----
+  &--featured {
+    border-color: $color-primary;
+    @include shadow(lg);
+
+    .card__header {
+      background: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
+      color: #ffffff;
+      border-bottom-color: transparent;
+    }
+
+    .card__title {
+      color: #ffffff;
+    }
+  }
+
+  &--flat {
+    border: none;
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}

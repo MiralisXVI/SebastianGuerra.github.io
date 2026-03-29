@@ -1,0 +1,31 @@
+{
+  "name": "smartbudget-frontend",
+  "version": "1.0.0",
+  "description": "Landing page moderna para SmartBudget - Gestión de finanzas personales",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass scss/main.scss css/main.css",
+    "sass:watch": "sass --watch scss:css",
+    "sass:prod": "sass --style=compressed scss/main.scss css/main.css",
+    "sass:debug": "sass --source-map scss/main.scss css/main.css"
+  },
+  "keywords": [
+    "smartbudget",
+    "finanzas",
+    "frontend",
+    "html5",
+    "sass",
+    "bem",
+    "bootstrap",
+    "responsive"
+  ],
+  "author": "SmartBudget Team",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}

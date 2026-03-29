@@ -1,0 +1,193 @@
+// ============================================================================
+// LAYOUT - Contenedores y layouts base
+// ============================================================================
+
+// CONTENEDOR PRINCIPAL
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-16;
+  padding-right: $spacing-16;
+
+  @include media-sm {
+    max-width: 540px;
+  }
+
+  @include media-md {
+    max-width: 720px;
+  }
+
+  @include media-lg {
+    max-width: 960px;
+  }
+
+  @include media-xl {
+    max-width: 1140px;
+  }
+
+  @include media-xxl {
+    max-width: 1320px;
+  }
+
+  // Variante sin max-width
+  &--fluid {
+    max-width: none;
+  }
+}
+
+// FILA Y COLUMNAS (Grid 12 columnas)
+.row {
+  @include flex(row, flex-start, stretch);
+  flex-wrap: wrap;
+  margin-left: -$spacing-8;
+  margin-right: -$spacing-8;
+}
+
+.col {
+  padding-left: $spacing-8;
+  padding-right: $spacing-8;
+  flex: 0 0 100%;
+
+  // Mobile: Full width por defecto
+  @include media-sm {
+    &--sm-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    &--sm-4 {
+      flex: 0 0 33.33333%;
+      max-width: 33.33333%;
+    }
+
+    &--sm-3 {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+
+    &--sm-2 {
+      flex: 0 0 16.66667%;
+      max-width: 16.66667%;
+    }
+
+    &--sm-1 {
+      flex: 0 0 8.33333%;
+      max-width: 8.33333%;
+    }
+  }
+
+  // Tablets
+  @include media-md {
+    &--md-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    &--md-4 {
+      flex: 0 0 33.33333%;
+      max-width: 33.33333%;
+    }
+
+    &--md-3 {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+
+    &--md-2 {
+      flex: 0 0 16.66667%;
+      max-width: 16.66667%;
+    }
+
+    &--md-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  // Desktops
+  @include media-lg {
+    &--lg-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    &--lg-4 {
+      flex: 0 0 33.33333%;
+      max-width: 33.33333%;
+    }
+
+    &--lg-3 {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+
+    &--lg-2 {
+      flex: 0 0 16.66667%;
+      max-width: 16.66667%;
+    }
+
+    &--lg-12 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+// STACK VERTICAL
+.stack {
+  @include flex(column, flex-start, stretch);
+  gap: $spacing-16;
+
+  &--sm {
+    gap: $spacing-8;
+  }
+
+  &--lg {
+    gap: $spacing-24;
+  }
+
+  &--justify-center {
+    justify-content: center;
+  }
+
+  &--align-center {
+    align-items: center;
+  }
+}
+
+// GRID GENERIC
+.grid {
+  @include grid(1, $spacing-16);
+
+  // Dos columnas en tablets
+  @include media-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Tres columnas en desktops
+  @include media-lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // Cuatro columnas en pantallas grandes
+  @include media-xl {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &--2-cols {
+    @include media-md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &--3-cols {
+    @include media-md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include media-lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

@@ -1,0 +1,95 @@
+// ============================================================================
+// FORMS - Componente BEM
+// ============================================================================
+// Estilos para formularios y controles
+
+.form-group {
+  margin-bottom: $spacing-16;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.label {
+  display: block;
+  margin-bottom: $spacing-6;
+  font-weight: $font-weight-semibold;
+  color: $text-color;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: $spacing-10 $spacing-12;
+  border: $border-width-thin solid $color-gray-300;
+  border-radius: $border-radius-md;
+  font-family: inherit;
+  font-size: $font-size-base;
+  background-color: $bg-color;
+  color: $text-color;
+  @include transition(border-color, box-shadow);
+
+  &:focus {
+    @include input-focus;
+  }
+
+  &:disabled {
+    background-color: $bg-color-light;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &--error {
+    border-color: $color-danger;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-danger, 0.1);
+      border-color: $color-danger;
+    }
+  }
+
+  &--success {
+    border-color: $color-success;
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($color-success, 0.1);
+      border-color: $color-success;
+    }
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234b5563' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right $spacing-12 center;
+  padding-right: $spacing-32;
+}
+
+.help-text {
+  display: block;
+  margin-top: $spacing-4;
+  font-size: $font-size-sm;
+  color: $text-color-light;
+}
+
+.error-text {
+  display: block;
+  margin-top: $spacing-4;
+  font-size: $font-size-sm;
+  color: $color-danger;
+}
+
+.success-text {
+  display: block;
+  margin-top: $spacing-4;
+  font-size: $font-size-sm;
+  color: $color-success;
+}

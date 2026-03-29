@@ -1,0 +1,141 @@
+// ============================================================================
+// NAVBAR - Componente BEM
+// ============================================================================
+// Navegación principal del sitio
+
+.navbar {
+  background-color: $bg-color;
+  border-bottom: $border-width-thin solid $color-gray-200;
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  @include shadow(sm);
+
+  &__container {
+    @include flex(row, space-between, center);
+    padding: $spacing-12 $spacing-16;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: $spacing-16;
+
+    @include media-lg {
+      padding: $spacing-16 0;
+    }
+  }
+
+  &__brand {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    text-decoration: none;
+    @include transition(color);
+
+    &:hover {
+      color: $color-primary-dark;
+    }
+  }
+
+  &__menu {
+    @include flex(row, flex-start, center, $spacing-8);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include media-md {
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+      position: fixed;
+      top: 70px;
+      right: 0;
+      width: 100%;
+      background-color: $bg-color;
+      flex-direction: column;
+      padding: $spacing-16;
+      gap: 0;
+      border-bottom: $border-width-thin solid $color-gray-200;
+      
+      @include media-md {
+        display: none !important;
+      }
+      
+      &.is-open {
+        display: flex;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__link {
+    color: $text-color;
+    text-decoration: none;
+    padding: $spacing-8 $spacing-12;
+    border-radius: $border-radius-base;
+    @include transition(all);
+    display: block;
+
+    &:hover {
+      color: $color-primary;
+      background-color: $bg-color-light;
+    }
+
+    &.is-active {
+      color: $color-primary;
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    @include button-reset;
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    gap: $spacing-4;
+    flex-direction: column;
+
+    @include media-md {
+      display: flex;
+    }
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: $text-color;
+      @include transition(all);
+      transform-origin: center;
+
+      &:nth-child(1) {
+        &.is-open {
+          transform: rotate(45deg) translate(8px, 8px);
+        }
+      }
+
+      &:nth-child(2) {
+        &.is-open {
+          opacity: 0;
+        }
+      }
+
+      &:nth-child(3) {
+        &.is-open {
+          transform: rotate(-45deg) translate(7px, -7px);
+        }
+      }
+    }
+  }
+
+  &__cta {
+    display: none;
+    
+    @include media-lg {
+      display: inline-block;
+    }
+  }
+}

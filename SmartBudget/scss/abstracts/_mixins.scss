@@ -1,0 +1,147 @@
+// ============================================================================
+// MIXINS - Funciones reutilizables
+// ============================================================================
+
+// ---- MIXINS DE MEDIA QUERIES (Mobile First) ----
+@mixin media-sm {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+    }
+}
+
+@mixin media-xl {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin media-xxl {
+  @media (min-width: $breakpoint-xxl) {
+    @content;
+  }
+}
+
+// ---- MIXIN FLEXBOX ----
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// ---- MIXIN GRID ----
+@mixin grid($columns: 1, $gap: $spacing-16) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// ---- MIXIN POSICIONAMIENTO ----
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-full {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// ---- MIXIN TRANSICIONES ----
+@mixin transition($properties: all, $duration: $transition-base, $timing: ease-in-out) {
+  transition: $properties $duration $timing;
+}
+
+// ---- MIXIN SOMBRAS ----
+@mixin shadow($level: 'base') {
+  @if $level == 'sm' {
+    box-shadow: $box-shadow-sm;
+  } @else if $level == 'base' {
+    box-shadow: $box-shadow-base;
+  } @else if $level == 'md' {
+    box-shadow: $box-shadow-md;
+  } @else if $level == 'lg' {
+    box-shadow: $box-shadow-lg;
+  } @else if $level == 'xl' {
+    box-shadow: $box-shadow-xl;
+  }
+}
+
+// ---- MIXIN TIPOGRAFÍA ----
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-clamp($lines: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin font-style($size: $font-size-base, $weight: $font-weight-normal, $height: $line-height-normal) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+// ---- MIXIN BOTONES ----
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+// ---- MIXIN INPUTS ----
+@mixin input-focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  border-color: $color-primary;
+  box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+}
+
+// ---- MIXIN ESTILOS DE ENLACE ----
+@mixin link-hover {
+  &:hover {
+    color: $color-primary-dark;
+    @include transition;
+  }
+  
+  &:focus {
+    @include input-focus;
+  }
+}
