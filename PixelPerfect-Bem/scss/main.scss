@@ -1,0 +1,15 @@
+// ============================================================
+// MAIN SCSS FILE - ENTRADA PRINCIPAL
+// ============================================================
+// Este archivo importa todos los módulos en el orden correcto
+// 1. Configuración y variables globales
+// 2. Reset y normalización  
+// 3. Componentes
+// El resultado se compila en un único archivo styles.css
+
+// Configuración global
+@import 'config/variables';
+@import 'config/reset';
+
+// Componentes
+@import 'components/course-card';

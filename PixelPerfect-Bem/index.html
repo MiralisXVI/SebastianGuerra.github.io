@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPerfect Studio - Metodología BEM | Course Card Component</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos adicionales para demostración */
+        .demo-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .metadata {
+            background: #f3f4f6;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #4b5563;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 20px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🎨 PixelPerfect Studio</h1>
+            <p>Demostración de metodología BEM aplicada a un componente Course Card</p>
+        </div>
+
+        <!-- SECCIÓN: TARJETAS ESTÁNDAR -->
+        <h2 class="section-title">Variante Estándar</h2>
+        <div class="cards-grid">
+            <!-- Card 1: Curso de JavaScript -->
+            <div class="course-card">
+                <div class="course-card__header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect fill='%23818cf8' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dominant-baseline='middle'%3EJavaScript%3C/text%3E%3C/svg%3E" alt="JavaScript" class="course-card__image">
+                    <span class="course-card__badge">PROGRAMACIÓN</span>
+                </div>
+                <div class="course-card__content">
+                    <h3 class="course-card__title">JavaScript Avanzado: De Principiante a Experto</h3>
+                    <p class="course-card__description">Domina JavaScript desde cero. Aprende conceptos avanzados, manipulación del DOM, y desarrollo con frameworks modernos.</p>
+                    <div class="course-card__meta">
+                        <span>⏱️ 42 horas</span>
+                        <span>📊 Intermedio</span>
+                        <span>👥 15.2K estudiantes</span>
+                    </div>
+                </div>
+                <div class="course-card__footer">
+                    <div class="course-card__rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.9</span>
+                        <span class="count">(2,841 reviews)</span>
+                    </div>
+                    <div class="course-card__price">$49.990</div>
+                    <div class="course-card__instructor">
+                        <div class="avatar">JD</div>
+                        <div class="info">
+                            <div class="name">Juan Díaz</div>
+                            <div class="title">Full-Stack Developer</div>
+                        </div>
+                    </div>
+                    <button class="course-card__cta">Enroll Now</button>
+                </div>
+            </div>
+
+            <!-- Card 2: Curso de React -->
+            <div class="course-card">
+                <div class="course-card__header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect fill='%234f46e5' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dominant-baseline='middle'%3EReact%3C/text%3E%3C/svg%3E" alt="React" class="course-card__image">
+                    <span class="course-card__badge">WEB</span>
+                </div>
+                <div class="course-card__content">
+                    <h3 class="course-card__title">React Hooks & State Management</h3>
+                    <p class="course-card__description">Construye aplicaciones React modernas usando Hooks. Aprende Context API, Redux y mejores prácticas de desarrollo.</p>
+                    <div class="course-card__meta">
+                        <span>⏱️ 38 horas</span>
+                        <span>📊 Intermedio</span>
+                        <span>👥 22.1K estudiantes</span>
+                    </div>
+                </div>
+                <div class="course-card__footer">
+                    <div class="course-card__rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.8</span>
+                        <span class="count">(3,102 reviews)</span>
+                    </div>
+                    <div class="course-card__price">$59.990</div>
+                    <div class="course-card__instructor">
+                        <div class="avatar">MS</div>
+                        <div class="info">
+                            <div class="name">María Sánchez</div>
+                            <div class="title">React Specialist</div>
+                        </div>
+                    </div>
+                    <button class="course-card__cta">Enroll Now</button>
+                </div>
+            </div>
+
+            <!-- Card 3: Curso de CSS -->
+            <div class="course-card">
+                <div class="course-card__header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect fill='%23ec4899' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dominant-baseline='middle'%3ECSS/SCSS%3C/text%3E%3C/svg%3E" alt="CSS" class="course-card__image">
+                    <span class="course-card__badge">DISEÑO</span>
+                </div>
+                <div class="course-card__content">
+                    <h3 class="course-card__title">Diseño Web con CSS Moderno y SCSS</h3>
+                    <p class="course-card__description">Crea interfaces hermosas y responsivas. Aprende Grid, Flexbox, animaciones y preprocesadores como SCSS.</p>
+                    <div class="course-card__meta">
+                        <span>⏱️ 32 horas</span>
+                        <span>📊 Principiante</span>
+                        <span>👥 31.5K estudiantes</span>
+                    </div>
+                </div>
+                <div class="course-card__footer">
+                    <div class="course-card__rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.7</span>
+                        <span class="count">(4,521 reviews)</span>
+                    </div>
+                    <div class="course-card__price">$39.990</div>
+                    <div class="course-card__instructor">
+                        <div class="avatar">CP</div>
+                        <div class="info">
+                            <div class="name">Carlos Pérez</div>
+                            <div class="title">UX/UI Designer</div>
+                        </div>
+                    </div>
+                    <button class="course-card__cta">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: VARIANTE FEATURED -->
+        <h2 class="section-title">Variante: Featured (Destacada)</h2>
+        <div class="metadata">
+            Clase: <code>.course-card--featured</code> | Uso: Destacar cursos premium o populares
+        </div>
+        <div class="cards-grid">
+            <div class="course-card course-card--featured">
+                <div class="course-card__header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect fill='%234f46e5' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='28' fill='white' text-anchor='middle' dominant-baseline='middle'%3ETypeScript%3C/text%3E%3C/svg%3E" alt="TypeScript" class="course-card__image">
+                    <span class="course-card__badge">PREMIUM</span>
+                </div>
+                <div class="course-card__content">
+                    <h3 class="course-card__title">🌟 TypeScript Masterclass: Tipo Seguridad en JavaScript</h3>
+                    <p class="course-card__description">El curso más completo de TypeScript. Aprende tipos avanzados, decoradores, genéricos y cómo incrementar la calidad del código.</p>
+                    <div class="course-card__meta">
+                        <span>⏱️ 52 horas</span>
+                        <span>📊 Avanzado</span>
+                        <span>👥 8.9K estudiantes</span>
+                    </div>
+                </div>
+                <div class="course-card__footer">
+                    <div class="course-card__rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.9</span>
+                        <span class="count">(1,243 reviews)</span>
+                    </div>
+                    <div class="course-card__price">$79.990</div>
+                    <div class="course-card__instructor">
+                        <div class="avatar">DL</div>
+                        <div class="info">
+                            <div class="name">David López</div>
+                            <div class="title">TypeScript Expert</div>
+                        </div>
+                    </div>
+                    <button class="course-card__cta">Enroll Now - Limited Time</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: VARIANTE BESTSELLER -->
+        <h2 class="section-title">Variante: Bestseller (Más Vendido)</h2>
+        <div class="metadata">
+            Clase: <code>.course-card--bestseller</code> | Uso: Señalar cursos mejor valorados
+        </div>
+        <div class="cards-grid">
+            <div class="course-card course-card--bestseller">
+                <div class="course-card__header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect fill='%2310b981' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dominant-baseline='middle'%3ENode.js%3C/text%3E%3C/svg%3E" alt="Node.js" class="course-card__image">
+                    <span class="course-card__badge">BESTSELLER</span>
+                </div>
+                <div class="course-card__content">
+                    <h3 class="course-card__title">Node.js & Express: Backend Completo</h3>
+                    <p class="course-card__description">El curso más vendido en plataformas de educación tech. Construye servidores escalables, APIs REST y aprende mejores prácticas.</p>
+                    <div class="course-card__meta">
+                        <span>⏱️ 45 horas</span>
+                        <span>📊 Intermedio</span>
+                        <span>👥 45.3K estudiantes</span>
+                    </div>
+                </div>
+                <div class="course-card__footer">
+                    <div class="course-card__rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.9</span>
+                        <span class="count">(7,821 reviews)</span>
+                    </div>
+                    <div class="course-card__price">$54.990</div>
+                    <div class="course-card__instructor">
+                        <div class="avatar">AR</div>
+                        <div class="info">
+                            <div class="name">Antonio Rodríguez</div>
+                            <div class="title">Backend Architect</div>
+                        </div>
+                    </div>
+                    <button class="course-card__cta">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: VARIANTE COMPACT -->
+        <h2 class="section-title">Variante: Compact (Compacta)</h2>
+        <div class="metadata">
+            Clase: <code>.course-card--compact</code> | Uso: Mostrar múltiples tarjetas en grillas densas
+        </div>
+        <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="course-card course-card--compact">
+                <div class="course-card__header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect fill='%23f59e0b' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPython%3C/text%3E%3C/svg%3E" alt="Python" class="course-card__image">
+                    <span class="course-card__badge">DATA</span>
+                </div>
+                <div class="course-card__content">
+                    <h3 class="course-card__title">Python para Ciencia de Datos</h3>
+                    <div class="course-card__meta">
+                        <span>⏱️ 40 horas</span>
+                        <span>👥 12.5K</span>
+                    </div>
+                </div>
+                <div class="course-card__footer">
+                    <div class="course-card__rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.8</span>
+                    </div>
+                    <div class="course-card__price">$44.990</div>
+                    <button class="course-card__cta">Enroll Now</button>
+                </div>
+            </div>
+
+            <div class="course-card course-card--compact">
+                <div class="course-card__header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect fill='%233b82f6' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dominant-baseline='middle'%3EDevOps%3C/text%3E%3C/svg%3E" alt="DevOps" class="course-card__image">
+                    <span class="course-card__badge">INFRA</span>
+                </div>
+                <div class="course-card__content">
+                    <h3 class="course-card__title">Docker & Kubernetes Esencial</h3>
+                    <div class="course-card__meta">
+                        <span>⏱️ 35 horas</span>
+                        <span>👥 8.2K</span>
+                    </div>
+                </div>
+                <div class="course-card__footer">
+                    <div class="course-card__rating">
+                        <span class="stars">★★★★☆</span>
+                        <span>4.7</span>
+                    </div>
+                    <div class="course-card__price">$64.990</div>
+                    <button class="course-card__cta">Enroll Now</button>
+                </div>
+            </div>
+
+            <div class="course-card course-card--compact">
+                <div class="course-card__header">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Crect fill='%23ef4444' width='400' height='200'/%3E%3Ctext x='50%25' y='50%25' font-size='32' fill='white' text-anchor='middle' dominant-baseline='middle'%3EMongo%3C/text%3E%3C/svg%3E" alt="MongoDB" class="course-card__image">
+                    <span class="course-card__badge">BD</span>
+                </div>
+                <div class="course-card__content">
+                    <h3 class="course-card__title">MongoDB: NoSQL Masterclass</h3>
+                    <div class="course-card__meta">
+                        <span>⏱️ 28 horas</span>
+                        <span>👥 9.7K</span>
+                    </div>
+                </div>
+                <div class="course-card__footer">
+                    <div class="course-card__rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.9</span>
+                    </div>
+                    <div class="course-card__price">$39.990</div>
+                    <button class="course-card__cta">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: INFORMACIÓN SOBRE LA ESTRUCTURA BEM -->
+        <div style="margin-top: 80px; padding: 40px; background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(236,72,153,0.1)); border-radius: 12px;">
+            <h2 class="section-title" style="margin-top: 0; border-left: none; padding-left: 0; text-align: center;">📚 Sobre la Estructura BEM</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 32px;">
+                <div style="background: white; padding: 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                    <h3 style="color: #6366f1; margin-top: 0;">Block (Bloque)</h3>
+                    <p>Un componente independiente y reutilizable. Ejemplo: <code>.course-card</code> es el bloque principal que contiene toda la tarjeta del curso.</p>
+                </div>
+
+                <div style="background: white; padding: 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                    <h3 style="color: #6366f1; margin-top: 0;">Element (Elemento)</h3>
+                    <p>Partes del bloque que tienen sentido solo dentro de él. Ejemplos: <code>.course-card__title</code>, <code>.course-card__price</code>, <code>.course-card__cta</code></p>
+                </div>
+
+                <div style="background: white; padding: 24px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                    <h3 style="color: #6366f1; margin-top: 0;">Modifier (Modificador)</h3>
+                    <p>Variantes del bloque con comportamiento o estilo diferente. Ejemplos: <code>.course-card--featured</code>, <code>.course-card--compact</code>, <code>.course-card--bestseller</code></p>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 24px; border-radius: 8px; margin-top: 24px;">
+                <h3 style="color: #6366f1;">Beneficios de usar BEM:</h3>
+                <ul class="feature-list">
+                    <li><strong>Modularidad:</strong> Cada componente es independiente y reutilizable</li>
+                    <li><strong>Escalabilidad:</strong> Fácil agregar nuevas variantes (modificadores) sin afectar el código existente</li>
+                    <li><strong>Mantenibilidad:</strong> Nombres claros hacen que sea fácil entender la relación entre clases</li>
+                    <li><strong>Colaboración:</strong> Los desarrolladores entienden la estructura sin confusiones</li>
+                    <li><strong>Prevención de conflictos:</strong> Las clases anidadas evitan colisiones de nombres CSS</li>
+                    <li><strong>Facilita el testing:</strong> Componentes bien aislados facilitan pruebas automatizadas</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 2px solid #e5e7eb; color: #6b7280;">
+            <p>PixelPerfect Studio © 2026 | Demostración de Metodología BEM en CSS</p>
+            <p style="font-size: 13px;">Estructura de carpetas optimizada para escalabilidad y mantenimiento de proyectos web profesionales</p>
+        </div>
+    </div>
+</body>
+</html>
